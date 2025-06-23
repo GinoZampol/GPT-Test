@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liquid Glass Demo</title>
+<style>
+body {
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 40px;
+  max-width: 450px;
+  text-align: center;
+  color: #ffffff;
+}
+.light {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: moveLight 8s infinite alternate;
+}
+@keyframes moveLight {
+  from {
+    top: 10%;
+    left: 10%;
+  }
+  to {
+    top: 60%;
+    left: 70%;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="light"></div>
+  <div class="glass">
+    <h1>Liquid Glass UI</h1>
+    <p>This example features a translucent glass effect with soft light behind it, inspired by 2025 design trends.</p>
+  </div>
+</body>
+</html>
