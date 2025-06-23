@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #111, #333);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.hero {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+button#action {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+  background: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button#action:hover {
+  background: #ff0077;
+  color: #fff;
+}
+#mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+body::before {
+  content: '';
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: url('assets/background.svg') no-repeat center/cover;
+  filter: blur(80px);
+  animation: rotate 20s linear infinite;
+  z-index: 0;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.hero h1 {
+  background: linear-gradient(90deg, #ff0077, #00f5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+button#action:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 0, 119, 0.5);
+}
