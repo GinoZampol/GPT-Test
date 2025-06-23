@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Design Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Modern 2025-2026 design styles */
+:root {
+  --bg-color: #0d1117;
+  --accent-color: #4c9efc;
+  --text-color: #c9d1d9;
+  --gradient: radial-gradient(circle at 20% 20%, rgba(76, 158, 252, 0.6), transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(255, 0, 128, 0.6), transparent 60%);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-color);
+  background-image: var(--gradient);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #4c9efc, #ff0080);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  transition: transform 0.6s;
+}
+
+.card:hover {
+  transform: rotate3d(1, 1, 0, 20deg) scale(1.05);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 60deg, #4c9efc, #ff0080, #4c9efc);
+  animation: rotate 5s linear infinite;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 16px;
+  background: var(--bg-color);
+}
+
+@keyframes rotate {
+  to { transform: rotate(1turn); }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.8rem;
+  color: rgba(200,200,200,0.7);
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Super Future Design</h1>
+</header>
+
+<main>
+  <div class="card"></div>
+</main>
+
+<footer>
+  <p>Interactive concept &copy; 2025</p>
+</footer>
+
+<script>
+// subtle parallax effect for mouse movement
+const card = document.querySelector('.card');
+let xAxis, yAxis;
+card.addEventListener('mousemove', (e) => {
+  const rect = card.getBoundingClientRect();
+  xAxis = (e.clientX - rect.left - rect.width / 2) / 20;
+  yAxis = (e.clientY - rect.top - rect.height / 2) / 20;
+  card.style.transform = `rotateY(${xAxis}deg) rotateX(${-yAxis}deg)`;
+});
+card.addEventListener('mouseleave', () => {
+  card.style.transform = 'rotate3d(1, 1, 0, 20deg) scale(1.05)';
+});
+</script>
+</body>
+</html>
